@@ -3,6 +3,11 @@ title: "Get started"
 format: live-html
 engine: knitr
 webr:
+    packages:
+      - dplyr
+      - ggplot2
+editor_options: 
+  chunk_output_type: console
 ---
 
 {{< include ./_extensions/r-wasm/live/_knitr.qmd >}}

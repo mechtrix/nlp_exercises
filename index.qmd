@@ -1,0 +1,24 @@
+---
+title: "Natural Language Processing - praktische Übungen"
+---
+
+Hier finden Sie einfach Übungen zum Thema *Natural Language Processing" - ein großes Wort für eine einfache Idee: Text in seine Bestandteile zu zerlegen und quantitative nutzbar zu machen.
+
+[Jane Austen](img/Jane_Austen.jpg)
+
+In diesen Übungen konzentrieren wir uns im ersten Schritt auf die sehr bekannten Romane von [Jane Austen](https://de.wikipedia.org/wiki/Jane_Austen):
+
+- `sensesensibility`: Sense and Sensibility (deutsch: [Verstand und Gefühl](https://de.wikipedia.org/wiki/Verstand_und_Gef%C3%BChl)), veröffentlicht 1811
+- `prideprejudice`: Pride and Prejudice (deutsch: [Stolz und Vorurteil](https://de.wikipedia.org/wiki/Stolz_und_Vorurteil)), veröffentlicht 1813
+- `mansfieldpark`: [Mansfield Park](https://de.wikipedia.org/wiki/Mansfield_Park), veröffentlicht 1814
+- `emma`: [Emma](https://de.wikipedia.org/wiki/Emma_(Roman)), veröffentlicht 1815
+- `northangerabbey`: Northanger Abbey (deutsch: [Die Abtei von Northanger](https://de.wikipedia.org/wiki/Die_Abtei_von_Northanger)), posthum veröffentlicht 1818
+- `persuasion`: Persuasion (auch: [Anne Elliot](https://de.wikipedia.org/wiki/Anne_Elliot)), posthum veröffentlicht 1818
+
+
+Wir werden uns aus zwei Gründen die Romane in englischer Sprache ansehen:
+ 
+1. KI Modelle basieren zum größten Teil auf englischer Sprache - das macht es einfacher
+2. Wir müssen die Romane selber gar nicht verstehen!
+
+Vielen Dank an [Project Gutenberg](https://www.gutenberg.org/) das digitale Kopien von über $70.000$ Büchern in digitaler Form zur Verfügung stellt.
