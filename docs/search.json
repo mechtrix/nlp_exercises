@@ -1,0 +1,12 @@
+[
+  {
+    "objectID": "get_started.html",
+    "href": "get_started.html",
+    "title": "Get started",
+    "section": "",
+    "text": "Your personal R environment\nBelow you can see R running in the browser. It is not as powerful as if we install R on the machine, but it spares us the hassle of setting R up on every of your Computers. You can type some simple math to try it out! You can run single lines by pressing Ctrl + Enter.",
+    "crumbs": [
+      "Get started"
+    ]
+  }
+]
