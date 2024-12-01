@@ -2,6 +2,7 @@
 title: "Anfänge in NLP"
 format: live-html
 engine: knitr
+bibliography: https://api.citedrive.com/bib/1617f52c-097c-4db0-9612-9f04ceee00e1/references.bib?x=eyJpZCI6ICIxNjE3ZjUyYy0wOTdjLTRkYjAtOTYxMi05ZjA0Y2VlZTAwZTEiLCAidXNlciI6ICI1NjQ5IiwgInNpZ25hdHVyZSI6ICJiZThhOWMzYmFkNmNkYWYxMjU0YjYyMDMxZGRiNzY5MzkwODU5NWY3MDk1NWQ4OGEzMTc3YjM2YTA5MGM4NDgzIn0=
 webr:
     packages:
       - dplyr
@@ -89,3 +90,9 @@ tidy_books |> slice_sample(n = 100) |> datatable()
 
 ```
 
+## Stop Wörter
+
+Es gibt einige Wörter die grammatikalisch zwar nötig sind, aber nicht viel zum Satzverständnis beitragen.
+Diese Wörter werden *stop words* genannt.
+Im Englischen sind dies extrem häufige Wörter wie z.B. "the", "of", "to".
+Damit nicht jeder eigene *stop words* definieren muss, gibt es vorbereitete Lexika, die [öffentlich und frei zugänglich](http://snowball.tartarus.org/algorithms/english/stop.txt) sind [@lewis2004].

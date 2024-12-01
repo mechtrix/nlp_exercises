@@ -11,7 +11,17 @@
     "href": "get_started.html",
     "title": "Anfänge in NLP",
     "section": "",
-    "text": "Die Bücher - Rohdaten\nIm ersten Schritt lesen wir die Daten ein. Hierzu benutzen wir die Statistikumgebung R, sie müssen aber nicht viel über Programmieren wissen um die Befehle auszuführen. Wir müssen die Daten leider ein wenig beschränken, da wir sonst nicht mehr alles in einer Tabelle darstellen können.\n\n\n\n\n\n\n\n\nVorbereitung der Daten\nUnten werden Sie zum ersten Mal selber tätig. Vieles mag im ersten Schritt kryptisch aussehen, aber am Ende des Tages sind es recht einfache Übungen: Mit dem Befehl austen_books() holen wir die Rohdaten in unsere Programmierumgebung. Für die weitere Analyse der Daten gruppieren wir die Daten nach Buch (group_by(book)). Der mutate() Befehl ist schon komplizierter, aber eigentlich bauen wir uns nur eine Variable, die sagt in welcher Zeile im Buch der Text steht (linenumber = row_number()). Im letzten Schritt zählen wir Kapitel. Zugegebenermaßen sieht regex(\"^chapter [\\\\divxlc]\" furchteinflößend aus. Der Befehl ist eine regular expression und sucht im Text nach dem Wort chapter. cumsum() ist die kumulierte Summe der Kapitel. Das alles speichern wir in original_books, mit datatable() haben wir die Möglichkeit, die Daten interaktiv zu begutachten.\n\n\n\n\n\n\n\n\n\n\nTokenisierung\nIm nächsten Schritt werden die Wörter tokenisiert. Tokeninsierung bedeutet am Ende nichts anderes, als das ein langer Satz oder Text in seine Bestandteile zerlegt wird, um diesen dann für den Computer nutzbar und “verstehbar” zu machen. Der Satz: “Ich liebe Eis!” würde in einer Tokenisierung in die Tokens “Ich”, “liebe”, “Eis” und “!” zerlegt werden. Ein einzelener Satz kann hier noch von einem Menschen jederzeit zerlegt werden, bei einem umfangreichen Werk ist das aber nicht mehr wirklich möglich. Mit dem Befehl unnest_tokens() wenden wir die Tokeninsierung auf alle Werke von Jane Austen an. Es gibt unterschiedliche Arten von token, wir bleiben in diesem Beispiel bei Wörtern. Die Ergebnisse können wir dann wieder in einer interaktiven Tabelle ansehen, diesesmal wählen wir \\(100\\) zufällige Zeilen aus allen Datenreihen aus (slice_sample(n=100)). Das die Tokenisierung funktioniert hat lässt sich am schnellsten an der Anzahl der Zeilen in den Datensätzen erkennen. Im originales Datensatz sind insgesamt ca. \\(73.400\\) Zeilen enthalten, während der tokenisierte Datensatz \\(&gt;720.000\\) Zeilen umfasst. Jedes Token wird in eine neue Zeile geschrieben.",
+    "text": "Im ersten Schritt lesen wir die Daten ein. Hierzu benutzen wir die Statistikumgebung R, sie müssen aber nicht viel über Programmieren wissen um die Befehle auszuführen. Wir müssen die Daten leider ein wenig beschränken, da wir sonst nicht mehr alles in einer Tabelle darstellen können.",
+    "crumbs": [
+      "Anfänge in NLP"
+    ]
+  },
+  {
+    "objectID": "get_started.html#stop-wörter",
+    "href": "get_started.html#stop-wörter",
+    "title": "Anfänge in NLP",
+    "section": "Stop Wörter",
+    "text": "Stop Wörter\nEs gibt einige Wörter die grammatikalisch zwar nötig sind, aber nicht viel zum Satzverständnis beitragen. Diese Wörter werden stop words genannt. Im Englischen sind dies extrem häufige Wörter wie z.B. “the”, “of”, “to”. Damit nicht jeder eigene stop words definieren muss, gibt es vorbereitete Lexika, die öffentlich und frei zugänglich sind (Lewis et al. 2004).",
     "crumbs": [
       "Anfänge in NLP"
     ]
