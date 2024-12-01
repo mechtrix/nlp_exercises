@@ -4,7 +4,9 @@ title: "Natural Language Processing - praktische Übungen"
 
 Hier finden Sie einfach Übungen zum Thema *Natural Language Processing" - ein großes Wort für eine einfache Idee: Text in seine Bestandteile zu zerlegen und quantitative nutzbar zu machen.
 
-![Jane Austen](img/Jane_Austen.jpg)
+<center>
+![Jane Austen](img/Jane_Austen.jpg){width="50%"}
+</center>
 
 In diesen Übungen konzentrieren wir uns im ersten Schritt auf die sehr bekannten Romane von [Jane Austen](https://de.wikipedia.org/wiki/Jane_Austen):
 
