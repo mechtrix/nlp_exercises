@@ -1,12 +1,5 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Natural Language Processing - praktische Übungen",
-    "section": "",
-    "text": "Hier finden Sie einfache Übungen zum Thema Natural Language Processing - ein großes Wort für eine einfache Idee: Text in seine Bestandteile zu zerlegen und quantitative nutzbar zu machen.\n\n\n\n\nJane Austen\n\n\n\nIn diesen Übungen konzentrieren wir uns im ersten Schritt auf die sehr bekannten Romane von Jane Austen:\n\nsensesensibility: Sense and Sensibility (deutsch: Verstand und Gefühl), veröffentlicht 1811\nprideprejudice: Pride and Prejudice (deutsch: Stolz und Vorurteil), veröffentlicht 1813\nmansfieldpark: Mansfield Park, veröffentlicht 1814\nemma: Emma, veröffentlicht 1815\nnorthangerabbey: Northanger Abbey (deutsch: Die Abtei von Northanger), posthum veröffentlicht 1818\npersuasion: Persuasion (auch: Anne Elliot), posthum veröffentlicht 1818\n\nWir werden uns aus zwei Gründen die Romane in englischer Sprache ansehen:\n\nKI Modelle basieren zum größten Teil auf englischer Sprache - das macht es einfacher\nWir müssen die Romane selber gar nicht verstehen!\n\nVielen Dank an Project Gutenberg das digitale Kopien von über \\(70.000\\) Büchern in digitaler Form zur Verfügung stellt, sowie an Julia Silge die das package für R verfügbar gemacht hat (Silge 2022).\n\n\n\n\nReferences\n\nSilge, Julia. 2022. Janeaustenr: Jane Austen’s Complete Novels. https://CRAN.R-project.org/package=janeaustenr."
-  },
-  {
     "objectID": "get_started.html",
     "href": "get_started.html",
     "title": "Anfänge in NLP",
@@ -45,5 +38,12 @@
     "crumbs": [
       "Anfänge in NLP"
     ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Natural Language Processing - praktische Übungen",
+    "section": "",
+    "text": "Hier finden Sie einfache Übungen zum Thema Natural Language Processing - ein großes Wort für eine einfache Idee: Text in seine Bestandteile zu zerlegen und quantitative nutzbar zu machen.\n\n\n\n\nJane Austen\n\n\n\nIn diesen Übungen konzentrieren wir uns im ersten Schritt auf die sehr bekannten Romane von Jane Austen:\n\nsensesensibility: Sense and Sensibility (deutsch: Verstand und Gefühl), veröffentlicht 1811\nprideprejudice: Pride and Prejudice (deutsch: Stolz und Vorurteil), veröffentlicht 1813\nmansfieldpark: Mansfield Park, veröffentlicht 1814\nemma: Emma, veröffentlicht 1815\nnorthangerabbey: Northanger Abbey (deutsch: Die Abtei von Northanger), posthum veröffentlicht 1818\npersuasion: Persuasion (auch: Anne Elliot), posthum veröffentlicht 1818\n\nWir werden uns aus zwei Gründen die Romane in englischer Sprache ansehen:\n\nKI Modelle basieren zum größten Teil auf englischer Sprache - das macht es einfacher\nWir müssen die Romane selber gar nicht verstehen!\n\nVielen Dank an Project Gutenberg das digitale Kopien von über \\(70.000\\) Büchern in digitaler Form zur Verfügung stellt, sowie an Julia Silge die das package für R verfügbar gemacht hat (Silge 2022).\n\n\n\n\nReferences\n\nSilge, Julia. 2022. Janeaustenr: Jane Austen’s Complete Novels. https://CRAN.R-project.org/package=janeaustenr."
   }
 ]

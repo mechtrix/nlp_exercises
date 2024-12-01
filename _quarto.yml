@@ -9,6 +9,7 @@ website:
     search: true
     contents: 
       - href: get_started.qmd
+      - href: tf_idf.qmd
   page-footer: "Copyright 2024, Prof. Dr. Tim Weber" 
 
 format:
