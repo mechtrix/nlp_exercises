@@ -2,7 +2,7 @@
 title: "Natural Language Processing - praktische Übungen"
 ---
 
-Hier finden Sie einfach Übungen zum Thema *Natural Language Processing" - ein großes Wort für eine einfache Idee: Text in seine Bestandteile zu zerlegen und quantitative nutzbar zu machen.
+Hier finden Sie einfache Übungen zum Thema *Natural Language Processing* - ein großes Wort für eine einfache Idee: Text in seine Bestandteile zu zerlegen und quantitative nutzbar zu machen.
 
 <center>
 ![Jane Austen](img/Jane_Austen.jpg){width="50%"}

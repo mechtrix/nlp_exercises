@@ -1,5 +1,5 @@
 ---
-title: "Get started"
+title: "Anfänge in NLP"
 format: live-html
 engine: knitr
 webr:
@@ -43,15 +43,15 @@ austen_books() |> head(n=100) |> datatable()
 # Vorbereitung der Daten
 
 Unten werden Sie zum ersten Mal selber tätig.
-Vieles mag im ersten Schritt kryptisch aussehen, aber am Ende des Tages sind es recht einfach Übungen:
+Vieles mag im ersten Schritt kryptisch aussehen, aber am Ende des Tages sind es recht einfache Übungen:
 Mit dem Befehl `austen_books()` holen wir die Rohdaten in unsere Programmierumgebung.
 Für die weitere Analyse der Daten gruppieren wir die Daten nach *Buch* (`group_by(book)`).
-Der `mutate()` ist schon komplizierter, aber eigentlich bauen wir uns nur eine Variable die sagt in welcher Zeile im Buch der Text steht (`linenumber = row_number()`).
+Der `mutate()` Befehl ist schon komplizierter, aber eigentlich bauen wir uns nur eine Variable, die sagt in welcher Zeile im Buch der Text steht (`linenumber = row_number()`).
 Im letzten Schritt zählen wir Kapitel. 
 Zugegebenermaßen sieht `regex("^chapter [\\divxlc]"` furchteinflößend aus.
-Der Befehl ist eine *regular expression" und sucht im Text nach dem Wort `chapter`.
+Der Befehl ist eine *regular expression* und sucht im Text nach dem Wort `chapter`.
 `cumsum()` ist die kumulierte Summe der Kapitel.
-Das alles speichern wir in `original_books()`.
+Das alles speichern wir in `original_books`, mit `datatable()` haben wir die Möglichkeit, die Daten interaktiv zu begutachten.
 
 
 ```{webr}
@@ -66,5 +66,12 @@ original_books <- austen_books() %>%
 original_books |> head(n = 100) |> datatable()
 
 ```
+
+# Tokenisierung
+
+Im nächsten Schritt werden die Wörter *tokenisiert*.
+*Tokeninsierung* bedeutet am Ende nichts anderes, als das ein langer Satz oder Text in seine Bestandteile zerlegt wird, um diesen dann für den Computer nutzbar und "verstehbar" zu machen.
+Der Satz: *"Ich liebe Eis!"* würde in einer Tokenisierung in die Tokens "Ich", "liebe", "Eis" und "!" zerlegt werden.
+Ein einzelener Satz 
 
 

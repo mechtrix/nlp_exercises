@@ -6,6 +6,8 @@ library(dplyr)
 library(stringr)
 library(tidytext)
 
+austen_books() |> head(n=100) |> datatable()
+
 original_books <- austen_books() %>%
   group_by(book) |> 
   mutate(linenumber = row_number(),

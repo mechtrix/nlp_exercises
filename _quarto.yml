@@ -8,13 +8,12 @@ website:
     style: "floating"
     search: true
     contents: 
-      - text: "Get started"
-        href: get_started.qmd
+      - href: get_started.qmd
   page-footer: "Copyright 2024, Prof. Dr. Tim Weber" 
 
 format:
   html:
-    theme: sandstone
+    # theme: sandstone
     css: styles.css
     toc: true
 

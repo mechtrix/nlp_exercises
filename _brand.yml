@@ -1,0 +1,10 @@
+color:
+  palette:
+    dark-grey: "#222222"
+    blue: "#1a4273"
+  background: white
+  foreground: dark-grey
+  primary: "#1a4273"
+  
+logo: 
+  medium: img/logo.jpg
