@@ -7,6 +7,7 @@ library(stringr)
 library(tidytext)
 library(ggplot2)
 library(wordcloud)
+library(DT)
 
 austen_books() |> head(n=100) |> datatable()
 
@@ -92,7 +93,10 @@ by_book |>
     )
 
 
-tidy_books %>%
+wrdcld <- tidy_books %>%
   anti_join(stop_words) %>%
-  count(word) %>%
-  with(wordcloud(word, n, max.words = 100))
+  count(word)
+
+par(bg = "white")
+wordcloud(wrdcld$word,freq = wrdcld$n, max.words = 100)  
+
