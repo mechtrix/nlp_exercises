@@ -1,5 +1,25 @@
 [
   {
+    "objectID": "tf_idf.html",
+    "href": "tf_idf.html",
+    "title": "Wörter und Dokument Häufigkeit",
+    "section": "",
+    "text": "Eine der Hauptfragen in NLP ist, zu quantifizieren um was es in dem Dokument geht unter Benutzung der Wörter die enthalten sind. Während wir diese “Term Häufigkeit” (“term frequency” - \\(tf\\)) messen können, können wir ebenfalls die “inverse Dokumentenhäufigkeit” (“inverse document frequency” - \\(idf\\)) berechnen. Die Term Häufigkeit ist relativ einfach zu verstehen:\n\nWie oft kommt ein Wort vor?\n\nDie inverse Dokumentenhäufigkeit versucht, Wörter nach der Wichtigkeit zu gewichten.\n\nWie wichtig ist Wort?\n\nDies wird auch durch einfaches Zählen bestimmt.\n\n\nEine Sammlung von Texten sei eine Dokumenten Sammlung. Jeder Text darin ist ein Dokument:\n\nDokument 1: “Die Katze schläft auf dem Sofa.”\nDokument 2: “Der Hund läuft im Garten.”\nDokument 3: “Die Katze jagd die Maus.”\n\nEs soll nun die “Wichtigkeit” des Wortes Katze bestimmt werden.\n\n\n\\[ IDF(wort) = \\log \\left( \\frac{\\text{Anzahl aller Dokumente}}{\\text{Anzahl aller Dokumente, die das Wort enthalten}} \\right)\\]\nDie Anzahl aller Dokumente (Sätze) beträgt: \\(n_{Dokumente} = 3\\).\nDie Anzahl aller Dokumente, die das Wort “Katze” enthalten: \\(n_{\\text{enthalten Wort}} = 2\\)\n\\[IDF(\"Katze\")\\approx 0.18\\]\nJe kleiner der \\(IDF\\), desto unwichtiger ist das Wort. Das Wort ist weniger speziell.\nJe größer der \\[IDF\\], desto wichtiger ist das Wort für die Dokumente.",
+    "crumbs": [
+      "Wörter und Dokument Häufigkeit"
+    ]
+  },
+  {
+    "objectID": "tf_idf.html#beispiel-idf",
+    "href": "tf_idf.html#beispiel-idf",
+    "title": "Wörter und Dokument Häufigkeit",
+    "section": "",
+    "text": "Eine Sammlung von Texten sei eine Dokumenten Sammlung. Jeder Text darin ist ein Dokument:\n\nDokument 1: “Die Katze schläft auf dem Sofa.”\nDokument 2: “Der Hund läuft im Garten.”\nDokument 3: “Die Katze jagd die Maus.”\n\nEs soll nun die “Wichtigkeit” des Wortes Katze bestimmt werden.\n\n\n\\[ IDF(wort) = \\log \\left( \\frac{\\text{Anzahl aller Dokumente}}{\\text{Anzahl aller Dokumente, die das Wort enthalten}} \\right)\\]\nDie Anzahl aller Dokumente (Sätze) beträgt: \\(n_{Dokumente} = 3\\).\nDie Anzahl aller Dokumente, die das Wort “Katze” enthalten: \\(n_{\\text{enthalten Wort}} = 2\\)\n\\[IDF(\"Katze\")\\approx 0.18\\]\nJe kleiner der \\(IDF\\), desto unwichtiger ist das Wort. Das Wort ist weniger speziell.\nJe größer der \\[IDF\\], desto wichtiger ist das Wort für die Dokumente.",
+    "crumbs": [
+      "Wörter und Dokument Häufigkeit"
+    ]
+  },
+  {
     "objectID": "get_started.html",
     "href": "get_started.html",
     "title": "Anfänge in NLP",

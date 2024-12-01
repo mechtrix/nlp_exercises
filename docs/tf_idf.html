@@ -71,6 +71,35 @@ ul.task-list li input[type="checkbox"] {
 <script type="module" src="site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
 <link href="site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -125,8 +154,20 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#textquantifizierung" id="toc-textquantifizierung" class="nav-link active" data-scroll-target="#textquantifizierung">Textquantifizierung</a>
+  <ul class="collapse">
+  <li><a href="#beispiel-idf" id="toc-beispiel-idf" class="nav-link" data-scroll-target="#beispiel-idf">Beispiel idf</a>
+  <ul class="collapse">
+  <li><a href="#formel" id="toc-formel" class="nav-link" data-scroll-target="#formel">Formel</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -150,6 +191,34 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="textquantifizierung" class="level1">
+<h1>Textquantifizierung</h1>
+<p>Eine der Hauptfragen in NLP ist, zu quantifizieren um was es in dem Dokument geht unter Benutzung der Wörter die enthalten sind. Während wir diese “Term Häufigkeit” (“term frequency” - <span class="math inline">\(tf\)</span>) messen können, können wir ebenfalls die “inverse Dokumentenhäufigkeit” (“inverse document frequency” - <span class="math inline">\(idf\)</span>) berechnen. Die Term Häufigkeit ist relativ einfach zu verstehen:</p>
+<center>
+Wie oft kommt ein Wort vor?
+</center>
+<p>Die inverse Dokumentenhäufigkeit versucht, Wörter nach der Wichtigkeit zu gewichten.</p>
+<center>
+Wie wichtig ist Wort?
+</center>
+<p>Dies wird auch durch einfaches Zählen bestimmt.</p>
+<section id="beispiel-idf" class="level2">
+<h2 class="anchored" data-anchor-id="beispiel-idf">Beispiel idf</h2>
+<p>Eine Sammlung von Texten sei eine <em>Dokumenten Sammlung</em>. Jeder Text darin ist ein Dokument:</p>
+<ul>
+<li>Dokument 1: “Die Katze schläft auf dem Sofa.”</li>
+<li>Dokument 2: “Der Hund läuft im Garten.”</li>
+<li>Dokument 3: “Die Katze jagd die Maus.”</li>
+</ul>
+<p>Es soll nun die “Wichtigkeit” des Wortes <em>Katze</em> bestimmt werden.</p>
+<section id="formel" class="level3">
+<h3 class="anchored" data-anchor-id="formel">Formel</h3>
+<p><span class="math display">\[ IDF(wort) = \log \left( \frac{\text{Anzahl aller Dokumente}}{\text{Anzahl aller Dokumente, die das Wort enthalten}} \right)\]</span></p>
+<p>Die Anzahl aller <em>Dokumente</em> (Sätze) beträgt: <span class="math inline">\(n_{Dokumente} = 3\)</span>.</p>
+<p>Die Anzahl aller <em>Dokumente</em>, die das Wort “Katze” enthalten: <span class="math inline">\(n_{\text{enthalten Wort}} = 2\)</span></p>
+<p><span class="math display">\[IDF("Katze")\approx 0.18\]</span></p>
+<p>Je kleiner der <span class="math inline">\(IDF\)</span>, desto unwichtiger ist das Wort. Das Wort ist weniger speziell.</p>
+<p>Je größer der <span class="math display">\[IDF\]</span>, desto wichtiger ist das Wort für die Dokumente.</p>
 <div class="cell">
 <div>
 <div id="webr-1" class="exercise-cell">
@@ -179,6 +248,9 @@ eyJjb250ZW50cyI6W3siY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0xIiwiaW5saW5lIjpmYWxzZSwibWV0
 <script type="vfs-file">
 W10=
 </script>
+</section>
+</section>
+</section>
 
 </main> <!-- /main -->
 <script type="ojs-module-contents">

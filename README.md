@@ -1,3 +1,3 @@
-# nlp_exercises
+# Übungen zu Natural Language Processing (NLP)
 
-[online exercises](https://mechtrix.github.io/nlp_exercises/get_started.html)
+[online exercises](https://mechtrix.github.io/nlp_exercises/)

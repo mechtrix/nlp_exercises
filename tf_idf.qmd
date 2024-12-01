@@ -18,6 +18,49 @@ editor_options:
 
 {{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
 
+# Textquantifizierung
+
+Eine der Hauptfragen in NLP ist, zu quantifizieren um was es in dem Dokument geht unter Benutzung der Wörter die enthalten sind.
+Während wir diese "Term Häufigkeit" ("term frequency" - $tf$) messen können, können wir ebenfalls die "inverse Dokumentenhäufigkeit" ("inverse document frequency" - $idf$) berechnen.
+Die Term Häufigkeit ist relativ einfach zu verstehen: 
+
+<center>
+Wie oft kommt ein Wort vor?
+</center>
+
+Die inverse Dokumentenhäufigkeit versucht, Wörter nach der Wichtigkeit zu gewichten.
+
+<center>
+Wie wichtig ist Wort?
+</center>
+
+Dies wird auch durch einfaches Zählen bestimmt.
+
+## Beispiel idf
+
+Eine Sammlung von Texten sei eine *Dokumenten Sammlung*.
+Jeder Text darin ist ein Dokument:
+
+- Dokument 1: "Die Katze schläft auf dem Sofa."
+- Dokument 2: "Der Hund läuft im Garten."
+- Dokument 3: "Die Katze jagd die Maus."
+
+Es soll nun die "Wichtigkeit" des Wortes *Katze* bestimmt werden.
+
+### Formel
+
+$$ IDF(wort) = \log \left( \frac{\text{Anzahl aller Dokumente}}{\text{Anzahl aller Dokumente, die das Wort enthalten}} \right)$$
+
+Die Anzahl aller *Dokumente* (Sätze) beträgt: $n_{Dokumente} = 3$.
+
+Die Anzahl aller *Dokumente*, die das Wort "Katze" enthalten: $n_{\text{enthalten Wort}} = 2$
+
+$$IDF("Katze")\approx 0.18$$
+
+Je kleiner der $IDF$, desto unwichtiger ist das Wort. Das Wort ist weniger speziell.
+
+Je größer der $$IDF$$, desto wichtiger ist das Wort für die Dokumente.
+
 ```{webr}
 2+2
 
