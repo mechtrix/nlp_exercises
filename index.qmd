@@ -23,4 +23,4 @@ Wir werden uns aus zwei Gründen die Romane in englischer Sprache ansehen:
 1. KI Modelle basieren zum größten Teil auf englischer Sprache - das macht es einfacher
 2. Wir müssen die Romane selber gar nicht verstehen!
 
-Vielen Dank an [Project Gutenberg](https://www.gutenberg.org/) das digitale Kopien von über $70.000$ Büchern in digitaler Form zur Verfügung stellt.
+Vielen Dank an [Project Gutenberg](https://www.gutenberg.org/) das digitale Kopien von über $70.000$ Büchern in digitaler Form zur Verfügung stellt, sowie an [Julia Silge](https://github.com/juliasilge/janeaustenr) die das package für `R` verfügbar gemacht hat[@silge2022].
