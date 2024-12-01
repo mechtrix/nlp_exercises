@@ -11,7 +11,7 @@
     "href": "get_started.html",
     "title": "Get started",
     "section": "",
-    "text": "Your personal R environment\nBelow you can see R running in the browser. It is not as powerful as if we install R on the machine, but it spares us the hassle of setting R up on every of your Computers. You can type some simple math to try it out! You can run single lines by pressing Ctrl + Enter.",
+    "text": "Die Bücher - Rohdaten\nIm ersten Schritt lesen wir die Daten ein. Hierzu benutzen wir die Statistikumgebung R, sie müssen aber nicht viel über Programmieren wissen um die Befehle auszuführen. Wir müssen die Daten leider ein wenig beschränken, da wir sonst nicht mehr alles in einer Tabelle darstellen können.\n\n\nVorbereitung der Daten\nUnten werden Sie zum ersten Mal selber tätig. Vieles mag im ersten Schritt kryptisch aussehen, aber am Ende des Tages sind es recht einfach Übungen: Mit dem Befehl austen_books() holen wir die Rohdaten in unsere Programmierumgebung. Für die weitere Analyse der Daten gruppieren wir die Daten nach Buch (group_by(book)). Der mutate() ist schon komplizierter, aber eigentlich bauen wir uns nur eine Variable die sagt in welcher Zeile im Buch der Text steht (linenumber = row_number()). Im letzten Schritt zählen wir Kapitel. Zugegebenermaßen sieht regex(\"^chapter [\\\\divxlc]\" furchteinflößend aus. Der Befehl ist eine *regular expression” und sucht im Text nach dem Wort chapter. cumsum() ist die kumulierte Summe der Kapitel. Das alles speichern wir in original_books().",
     "crumbs": [
       "Get started"
     ]

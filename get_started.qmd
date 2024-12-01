@@ -6,19 +6,65 @@ webr:
     packages:
       - dplyr
       - ggplot2
+      - stringr
+      - janeaustenr
+      - tidytext
+      - DT
 editor_options: 
   chunk_output_type: console
 ---
 
 {{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
 
-# Your personal R environment
+```{r}
+#| label: setup
+#| include: false
 
-Below you can see R running in the browser. 
-It is not as powerful as if we install R on the machine, but it spares us the hassle of setting R up on every of your Computers.
-You can type some simple math to try it out!
-You can run single lines by pressing `Ctrl` + `Enter`.
+library(DT)
+library(janeaustenr)
+library(dplyr)
+
+```
+
+
+# Die Bücher - Rohdaten
+
+Im ersten Schritt lesen wir die Daten ein.
+Hierzu benutzen wir die Statistikumgebung `R`, sie müssen aber nicht viel über Programmieren wissen um die Befehle auszuführen.
+Wir müssen die Daten leider ein wenig beschränken, da wir sonst nicht mehr alles in einer Tabelle darstellen können.
+
+```{r}
+#| include: false
+
+austen_books() |> head(n=100) |> datatable()
+
+```
+
+# Vorbereitung der Daten
+
+Unten werden Sie zum ersten Mal selber tätig.
+Vieles mag im ersten Schritt kryptisch aussehen, aber am Ende des Tages sind es recht einfach Übungen:
+Mit dem Befehl `austen_books()` holen wir die Rohdaten in unsere Programmierumgebung.
+Für die weitere Analyse der Daten gruppieren wir die Daten nach *Buch* (`group_by(book)`).
+Der `mutate()` ist schon komplizierter, aber eigentlich bauen wir uns nur eine Variable die sagt in welcher Zeile im Buch der Text steht (`linenumber = row_number()`).
+Im letzten Schritt zählen wir Kapitel. 
+Zugegebenermaßen sieht `regex("^chapter [\\divxlc]"` furchteinflößend aus.
+Der Befehl ist eine *regular expression" und sucht im Text nach dem Wort `chapter`.
+`cumsum()` ist die kumulierte Summe der Kapitel.
+Das alles speichern wir in `original_books()`.
+
 
 ```{webr}
-1+1
+
+original_books <- austen_books() %>%
+  group_by(book) |> 
+  mutate(linenumber = row_number(),
+         chapter = cumsum(str_detect(text, regex("^chapter [\\divxlc]",
+                                                 ignore_case = TRUE)))) %>%
+  ungroup()
+
+original_books |> head(n = 100) |> datatable()
+
 ```
+
+
