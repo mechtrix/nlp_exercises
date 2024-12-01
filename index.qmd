@@ -1,5 +1,6 @@
 ---
 title: "Natural Language Processing - praktische Übungen"
+bibliography: https://api.citedrive.com/bib/1617f52c-097c-4db0-9612-9f04ceee00e1/references.bib?x=eyJpZCI6ICIxNjE3ZjUyYy0wOTdjLTRkYjAtOTYxMi05ZjA0Y2VlZTAwZTEiLCAidXNlciI6ICI1NjQ5IiwgInNpZ25hdHVyZSI6ICJiZThhOWMzYmFkNmNkYWYxMjU0YjYyMDMxZGRiNzY5MzkwODU5NWY3MDk1NWQ4OGEzMTc3YjM2YTA5MGM4NDgzIn0=
 ---
 
 Hier finden Sie einfache Übungen zum Thema *Natural Language Processing* - ein großes Wort für eine einfache Idee: Text in seine Bestandteile zu zerlegen und quantitative nutzbar zu machen.
@@ -23,4 +24,4 @@ Wir werden uns aus zwei Gründen die Romane in englischer Sprache ansehen:
 1. KI Modelle basieren zum größten Teil auf englischer Sprache - das macht es einfacher
 2. Wir müssen die Romane selber gar nicht verstehen!
 
-Vielen Dank an [Project Gutenberg](https://www.gutenberg.org/) das digitale Kopien von über $70.000$ Büchern in digitaler Form zur Verfügung stellt, sowie an [Julia Silge](https://github.com/juliasilge/janeaustenr) die das package für `R` verfügbar gemacht hat[@silge2022].
+Vielen Dank an [Project Gutenberg](https://www.gutenberg.org/) das digitale Kopien von über $70.000$ Büchern in digitaler Form zur Verfügung stellt, sowie an [Julia Silge](https://github.com/juliasilge/janeaustenr) die das package für `R` verfügbar gemacht hat [@silge2022].

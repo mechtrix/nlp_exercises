@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -193,11 +213,16 @@ window.Quarto = {
 <li>KI Modelle basieren zum größten Teil auf englischer Sprache - das macht es einfacher</li>
 <li>Wir müssen die Romane selber gar nicht verstehen!</li>
 </ol>
-<p>Vielen Dank an <a href="https://www.gutenberg.org/">Project Gutenberg</a> das digitale Kopien von über <span class="math inline">\(70.000\)</span> Büchern in digitaler Form zur Verfügung stellt, sowie an <a href="https://github.com/juliasilge/janeaustenr">Julia Silge</a> die das package für <code>R</code> verfügbar gemacht hat<span class="citation" data-cites="silge2022">[@silge2022]</span>.</p>
+<p>Vielen Dank an <a href="https://www.gutenberg.org/">Project Gutenberg</a> das digitale Kopien von über <span class="math inline">\(70.000\)</span> Büchern in digitaler Form zur Verfügung stellt, sowie an <a href="https://github.com/juliasilge/janeaustenr">Julia Silge</a> die das package für <code>R</code> verfügbar gemacht hat <span class="citation" data-cites="silge2022">(<a href="#ref-silge2022" role="doc-biblioref">Silge 2022</a>)</span>.</p>
 
 
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-silge2022" class="csl-entry" role="listitem">
+Silge, Julia. 2022. <em>Janeaustenr: Jane Austen’s Complete Novels</em>. <a href="https://CRAN.R-project.org/package=janeaustenr">https://CRAN.R-project.org/package=janeaustenr</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
