@@ -11,6 +11,7 @@ webr:
       - janeaustenr
       - tidytext
       - DT
+      - wordcloud
 editor_options: 
   chunk_output_type: console
 ---
@@ -159,6 +160,21 @@ tidy_books %>%
 
 ```
 
+Wir können die Ergebnisse auch in einer *wordcloud* darstellen.
+Hierzunehmen wir maximal $100$ Wörter und richten diese zufällig in einer Art Kreis an.
+Die Größe jedes Wortes entspricht hier der relativen Häufigkeit.
+
+```{webr}
+#| context: output
+
+tidy_books %>%
+  anti_join(stop_words) %>%
+  count(word) %>%
+  with(wordcloud(word, n, max.words = 100))
+
+```
+
+
 ## Top 10 der Bücher
 
 Wir wollen noch wissen inwiefern die Bücher sich voneinander unterscheiden und analysieren die Top 10 eines jeden Buches.
@@ -229,7 +245,7 @@ Die dazugehörige grafische Darstellung ist dann eben unten zu sehen.
 
 ```{webr}
 #| fig-height: 7
-#| 
+#| context: output
 
 by_book_top20 |> 
   ggplot(

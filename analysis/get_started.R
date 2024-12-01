@@ -1,5 +1,5 @@
 
-# exercise 1
+# This is the raw code for the "get_started" exercises
 
 library(janeaustenr)
 library(dplyr)
@@ -90,3 +90,9 @@ by_book |>
   theme(
     legend.position = "bottom"
     )
+
+
+tidy_books %>%
+  anti_join(stop_words) %>%
+  count(word) %>%
+  with(wordcloud(word, n, max.words = 100))
