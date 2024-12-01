@@ -72,8 +72,10 @@ original_books |> head(n = 100) |> datatable()
 
 Im nächsten Schritt werden die Wörter *tokenisiert*.
 *Tokeninsierung* bedeutet am Ende nichts anderes, als das ein langer Satz oder Text in seine Bestandteile zerlegt wird, um diesen dann für den Computer nutzbar und "verstehbar" zu machen.
+
 Der Satz: *"Ich liebe Eis!"* würde in einer Tokenisierung in die Tokens **"Ich"**, "liebe", **"Eis"** und **"!"** zerlegt werden.
 Ein einzelener Satz kann hier noch von einem Menschen jederzeit zerlegt werden, bei einem umfangreichen Werk ist das aber nicht mehr wirklich möglich.
+
 Mit dem Befehl `unnest_tokens()` wenden wir die *Tokeninsierung* auf alle Werke von Jane Austen an.
 Es gibt unterschiedliche Arten von *token*, wir bleiben in diesem Beispiel bei *Wörtern*.
 Die Ergebnisse können wir dann wieder in einer interaktiven Tabelle ansehen, diesesmal wählen wir $100$ zufällige Zeilen aus allen Datenreihen aus (`slice_sample(n=100)`).
@@ -157,6 +159,8 @@ tidy_books %>%
 
 ```
 
+## Top 10 der Bücher
+
 Wir wollen noch wissen inwiefern die Bücher sich voneinander unterscheiden und analysieren die Top 10 eines jeden Buches.
 
 ```{webr}
@@ -171,7 +175,7 @@ by_book <- tidy_books |>
 Die dazugehörige grafische Darstellung ist dann eben unten zu sehen.
 
 ```{webr}
-#| fig-height: 5
+#| fig-height: 7
 #| 
 by_book |> 
   ggplot(
@@ -207,6 +211,9 @@ by_book |>
 
 Am häufigsten in den Büchern kommen vor allem die Namen der Figuren vor!
 Das ist nicht sonderlich überaschend, bestätigt aber auch den Schreibstil von Jane Austen.
+
+## Top 20 der Bücher
+
 Wir können die *Top* der Wörter auch auf die *Top 20* ändern.
 
 ```{webr}
@@ -221,7 +228,7 @@ by_book_top20 <- tidy_books |>
 Die dazugehörige grafische Darstellung ist dann eben unten zu sehen.
 
 ```{webr}
-#| fig-height: 5
+#| fig-height: 7
 #| 
 
 by_book_top20 |> 

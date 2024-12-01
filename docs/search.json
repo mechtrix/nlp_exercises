@@ -25,5 +25,25 @@
     "crumbs": [
       "Anfänge in NLP"
     ]
+  },
+  {
+    "objectID": "get_started.html#top-10-der-bücher",
+    "href": "get_started.html#top-10-der-bücher",
+    "title": "Anfänge in NLP",
+    "section": "Top 10 der Bücher",
+    "text": "Top 10 der Bücher\nWir wollen noch wissen inwiefern die Bücher sich voneinander unterscheiden und analysieren die Top 10 eines jeden Buches.\n\n\n\n\n\n\n\n\nDie dazugehörige grafische Darstellung ist dann eben unten zu sehen.\n\n\n\n\n\n\n\n\nAm häufigsten in den Büchern kommen vor allem die Namen der Figuren vor! Das ist nicht sonderlich überaschend, bestätigt aber auch den Schreibstil von Jane Austen.",
+    "crumbs": [
+      "Anfänge in NLP"
+    ]
+  },
+  {
+    "objectID": "get_started.html#top-20-der-bücher",
+    "href": "get_started.html#top-20-der-bücher",
+    "title": "Anfänge in NLP",
+    "section": "Top 20 der Bücher",
+    "text": "Top 20 der Bücher\nWir können die Top der Wörter auch auf die Top 20 ändern.\n\n\n\n\n\n\n\n\nDie dazugehörige grafische Darstellung ist dann eben unten zu sehen.",
+    "crumbs": [
+      "Anfänge in NLP"
+    ]
   }
 ]
