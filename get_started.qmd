@@ -4,7 +4,8 @@ format: live-html
 engine: knitr
 bibliography: https://api.citedrive.com/bib/1617f52c-097c-4db0-9612-9f04ceee00e1/references.bib?x=eyJpZCI6ICIxNjE3ZjUyYy0wOTdjLTRkYjAtOTYxMi05ZjA0Y2VlZTAwZTEiLCAidXNlciI6ICI1NjQ5IiwgInNpZ25hdHVyZSI6ICJiZThhOWMzYmFkNmNkYWYxMjU0YjYyMDMxZGRiNzY5MzkwODU5NWY3MDk1NWQ4OGEzMTc3YjM2YTA5MGM4NDgzIn0=
 webr:
-    packages:
+  render-df: DT
+  packages:
       - dplyr
       - ggplot2
       - stringr
@@ -86,7 +87,7 @@ Jedes Token wird in eine neue Zeile geschrieben.
 tidy_books <- original_books %>%
   unnest_tokens(word, text)
 
-tidy_books |> slice_sample(n = 100) |> datatable()
+tidy_books |> slice_sample(n = 100) 
 
 ```
 
@@ -96,3 +97,37 @@ Es gibt einige Wörter die grammatikalisch zwar nötig sind, aber nicht viel zum
 Diese Wörter werden *stop words* genannt.
 Im Englischen sind dies extrem häufige Wörter wie z.B. "the", "of", "to".
 Damit nicht jeder eigene *stop words* definieren muss, gibt es vorbereitete Lexika, die [öffentlich und frei zugänglich](http://snowball.tartarus.org/algorithms/english/stop.txt) sind [@lewis2004].
+Aus unseren Daten können wir die *stop words* mit einem *anti join* entfernen.
+Mit dem `nrow()` Befehl sehen wir schnell, dass sich die Anzahl der Datensätze drastisch auf $\approx 217.000$ verringert hat.
+
+```{webr}
+
+data(stop_words)
+
+tidy_books <- tidy_books %>%
+  anti_join(stop_words)
+
+nrow(tidy_books)
+
+```
+
+# Wörter zählen
+
+Die Autorin hat und hatte massive Einfluss auf die englische Literatur.
+Die Frage ist: Wie hat sie das geschafft?
+Mit den so vorbereiteten Daten beantworten läßt sich jetzt eine Frage recht schnell beantworten
+
+*Welche Wörter hat Jane Austen am liebsten verwendet?*
+
+Der Befehl `count()` riecht ja geradu passen, wir wollen diesen auf unseren Datensatz anwenden.
+
+```{webr}
+
+tidy_books %>%
+  count(word, sort = TRUE) 
+
+```
+
+Aber eine Tabelle ist nicht immer die beste Art zur Darstellung von Daten.
+Die Umgebung `R` verfügt über immense grafische Darstellungsbibliotheken.
+Da dies aber kein `R` Kurs ist, sind die grafischen Darstellungen bereits vorbereitet.

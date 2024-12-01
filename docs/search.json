@@ -21,7 +21,7 @@
     "href": "get_started.html#stop-wörter",
     "title": "Anfänge in NLP",
     "section": "Stop Wörter",
-    "text": "Stop Wörter\nEs gibt einige Wörter die grammatikalisch zwar nötig sind, aber nicht viel zum Satzverständnis beitragen. Diese Wörter werden stop words genannt. Im Englischen sind dies extrem häufige Wörter wie z.B. “the”, “of”, “to”. Damit nicht jeder eigene stop words definieren muss, gibt es vorbereitete Lexika, die öffentlich und frei zugänglich sind (Lewis et al. 2004).",
+    "text": "Stop Wörter\nEs gibt einige Wörter die grammatikalisch zwar nötig sind, aber nicht viel zum Satzverständnis beitragen. Diese Wörter werden stop words genannt. Im Englischen sind dies extrem häufige Wörter wie z.B. “the”, “of”, “to”. Damit nicht jeder eigene stop words definieren muss, gibt es vorbereitete Lexika, die öffentlich und frei zugänglich sind (Lewis et al. 2004). Aus unseren Daten können wir die stop words mit einem anti join entfernen. Mit dem nrow() Befehl sehen wir schnell, dass sich die Anzahl der Datensätze drastisch auf \\(\\approx 217.000\\) verringert hat.",
     "crumbs": [
       "Anfänge in NLP"
     ]

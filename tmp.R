@@ -22,3 +22,8 @@ tidy_books <- original_books %>%
   unnest_tokens(word, text)
 
 tidy_books
+
+data(stop_words)
+
+tidy_books <- tidy_books %>%
+  anti_join(stop_words)
