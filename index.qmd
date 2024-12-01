@@ -25,3 +25,4 @@ Wir werden uns aus zwei Gründen die Romane in englischer Sprache ansehen:
 2. Wir müssen die Romane selber gar nicht verstehen!
 
 Vielen Dank an [Project Gutenberg](https://www.gutenberg.org/) das digitale Kopien von über $70.000$ Büchern in digitaler Form zur Verfügung stellt, sowie an [Julia Silge](https://github.com/juliasilge/janeaustenr) die das package für `R` verfügbar gemacht hat [@silge2022].
+Weiterführende Literatur ist auch [hier](https://www.tidytextmining.com/) zu finden [@Silge2017TMR].

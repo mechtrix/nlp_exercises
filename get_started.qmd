@@ -74,7 +74,7 @@ original_books |> head(n = 100) |> datatable()
 Im nächsten Schritt werden die Wörter *tokenisiert*.
 *Tokeninsierung* bedeutet am Ende nichts anderes, als das ein langer Satz oder Text in seine Bestandteile zerlegt wird, um diesen dann für den Computer nutzbar und "verstehbar" zu machen.
 
-Der Satz: *"Ich liebe Eis!"* würde in einer Tokenisierung in die Tokens **"Ich"**, "liebe", **"Eis"** und **"!"** zerlegt werden.
+Der Satz: *"Ich liebe Eis!"* würde in einer Tokenisierung in die Tokens **"Ich"**, **"liebe"**, **"Eis"** und **"!"** zerlegt werden.
 Ein einzelener Satz kann hier noch von einem Menschen jederzeit zerlegt werden, bei einem umfangreichen Werk ist das aber nicht mehr wirklich möglich.
 
 Mit dem Befehl `unnest_tokens()` wenden wir die *Tokeninsierung* auf alle Werke von Jane Austen an.
