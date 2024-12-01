@@ -1,0 +1,20 @@
+project:
+  type: website
+  output-dir: docs
+toc: true
+website:
+  title: "Natural language processing exercises"
+  sidebar: 
+    style: "floating"
+    search: true
+    contents: 
+      - text: "Get started"
+        href: get_started.qmd
+  page-footer: "Copyright 2024, Prof. Dr. Tim Weber" 
+
+format:
+  html:
+    theme: sandstone
+    css: styles.css
+    toc: true
+
