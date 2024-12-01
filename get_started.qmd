@@ -4,7 +4,6 @@ format: live-html
 engine: knitr
 bibliography: https://api.citedrive.com/bib/1617f52c-097c-4db0-9612-9f04ceee00e1/references.bib?x=eyJpZCI6ICIxNjE3ZjUyYy0wOTdjLTRkYjAtOTYxMi05ZjA0Y2VlZTAwZTEiLCAidXNlciI6ICI1NjQ5IiwgInNpZ25hdHVyZSI6ICJiZThhOWMzYmFkNmNkYWYxMjU0YjYyMDMxZGRiNzY5MzkwODU5NWY3MDk1NWQ4OGEzMTc3YjM2YTA5MGM4NDgzIn0=
 webr:
-  render-df: DT
   packages:
       - dplyr
       - ggplot2
@@ -87,7 +86,7 @@ Jedes Token wird in eine neue Zeile geschrieben.
 tidy_books <- original_books %>%
   unnest_tokens(word, text)
 
-tidy_books |> slice_sample(n = 100) 
+tidy_books |> slice_sample(n = 100) |> datatable()
 
 ```
 
@@ -131,3 +130,76 @@ tidy_books %>%
 Aber eine Tabelle ist nicht immer die beste Art zur Darstellung von Daten.
 Die Umgebung `R` verfügt über immense grafische Darstellungsbibliotheken.
 Da dies aber kein `R` Kurs ist, sind die grafischen Darstellungen bereits vorbereitet.
+
+```{webr}
+
+tidy_books %>%
+  count(word, sort = TRUE) %>%
+  filter(n > 600) %>%
+  mutate(word = reorder(word, n)) %>%
+  ggplot(
+    aes(
+      y = word, 
+      x = n)
+    ) +
+  geom_col(
+    fill = "steelblue"
+  )+
+  scale_x_continuous(
+    expand = c(0,0,0.05,0)
+  )+
+  labs(
+    title = " Die meist-benutzten Wörter",
+    x = "Häufigkeit der Wörter",
+    y = ""
+  )+
+  theme_minimal(base_size = 15)
+
+```
+
+Wir wollen noch wissen inwiefern die Bücher sich voneinander unterscheiden und analysieren die Top 10 eines jeden Buches.
+
+```{webr}
+by_book <- tidy_books |> 
+  group_by(book,word) |> 
+  summarise(
+    n_words = n()
+  ) |> 
+  top_n(10)
+```
+
+Die dazugehörige grafische Darstellung ist dann eben unten zu sehen.
+
+```{webr}
+by_book |> 
+  ggplot(
+    aes(
+      x = n_words,
+      y = reorder_within(word,n_words,book),
+      fill = book
+    )
+  )+
+  geom_col()+
+  facet_wrap(
+    ~book,
+    scales = "free_y"
+  )+
+  scale_y_reordered()+
+  scale_x_continuous(
+    expand = c(0,0,0.05,0)
+    )+
+  scale_fill_brewer(
+    palette = "Dark2"
+  )+
+  labs(
+    x ="",
+    y = "",
+    fill = ""
+  )+
+  theme_bw()+
+  theme(
+    legend.position = "bottom"
+    )
+
+```
+
