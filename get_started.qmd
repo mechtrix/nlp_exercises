@@ -34,7 +34,7 @@ Hierzu benutzen wir die Statistikumgebung `R`, sie müssen aber nicht viel über
 Wir müssen die Daten leider ein wenig beschränken, da wir sonst nicht mehr alles in einer Tabelle darstellen können.
 
 ```{r}
-#| include: false
+#| echo: false
 
 austen_books() |> head(n=100) |> datatable()
 
