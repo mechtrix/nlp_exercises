@@ -55,15 +55,72 @@ Die Anzahl aller *Dokumente* (Sätze) beträgt: $n_{Dokumente} = 3$.
 
 Die Anzahl aller *Dokumente*, die das Wort "Katze" enthalten: $n_{\text{enthalten Wort}} = 2$
 
-$$IDF("Katze")\approx 0.18$$
+$$IDF(Katze)\approx 0.18$$
 
 Je kleiner der $IDF$, desto unwichtiger ist das Wort. Das Wort ist weniger speziell.
 
-Je größer der $$IDF$$, desto wichtiger ist das Wort für die Dokumente.
+Je größer der $IDF$, desto wichtiger ist das Wort für die Dokumente.
+
+# Termhäufigkeit
+
+Im Nachfolgenden wird die Termhäufigkeit in allen Werken von Jane Austen berechnet
 
 ```{webr}
-2+2
+
+book_words = austen_books() %>% 
+  unnest_tokens(word, text) %>% 
+  count(book, word, sort = TRUE)
+
+# count number of terms in each book
+total_words = book_words %>% 
+  group_by(book) %>% 
+  summarize(total = sum(n))
+#join both
+book_words = left_join(book_words, total_words)
+
+book_words |> slice_sample(n=100)|> datatable()
 
 ```
 
+Die Ergebnistabelle enthält ein Wort/ein Buch.
+`n` bezeichnet wie oft dieses Wort in diesem Buch verwendet wird, während `total` die komplette Anzahl aller Wörter in dem speziellen Buch darstellt.
+Im ersten schauen wir uns die Verteilung von `n/total` für jeden Roman an.
+Wir stellen also die Häufigkeit der Terme im Bezug zur kompletten Häufigkeit der Wörter dar: die *Termhäufigkeit* (*tf*)
 
+```{webr}
+#| fig-height: 7
+
+
+book_words |> 
+  ggplot(
+    aes(
+      x = n/total,
+      fill = book
+    )
+  )+
+  geom_histogram()+
+  facet_wrap(
+    ~book,
+    scales = "free_y"
+  )+
+  labs(
+    fill = ""
+  )+
+  scale_fill_brewer(
+    palette = "Dark2"
+  )+
+  scale_y_continuous(
+    expand = c(0,0,0.05,0)
+  )+
+  scale_x_continuous(
+    limits = c(NA, 0.0009),
+    labels = scales::percent
+  )+
+  theme_bw()+
+  theme(
+    legend.position = "bottom"
+    )
+
+```
+
+## Zipf'sches Gesetz
