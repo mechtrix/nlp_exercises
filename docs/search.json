@@ -24,7 +24,17 @@
     "href": "tf_idf.html#zipfsches-gesetz",
     "title": "Wörter und Dokument Häufigkeit",
     "section": "Zipf’sches Gesetz",
-    "text": "Zipf’sches Gesetz",
+    "text": "Zipf’sches Gesetz\nDie Daten folgen einer Gesetzmäßigkeit, auch Zipf’sches Gesetz genannt.\n\nDas Zipf’sche Gesetz besagt, dass in einer Sprache die Häufigkeit eines Wortes umgekehrt proportional zu seinem Rang in einer Häufigkeitsliste ist.\nWenige Wörter kommen sehr oft vor, während die Mehrheit der Wörter selten verwendet wird.\n\nDas kann eindrucksvoll am Beispiel der Bücher von Jane Austen gezeigt werden.\n\n\n\n\n\n\n\n\nDie Zipf-Verteilung kann in R natürlich auch modelliert werden. Als wesentlicher Faktor gilt der Formparameter. Der Einfluss des Formparameters ist in der nachfolgenden Parameterstudie dargestellt.",
+    "crumbs": [
+      "Wörter und Dokument Häufigkeit"
+    ]
+  },
+  {
+    "objectID": "tf_idf.html#vergleich-mit-termhäufigkeit",
+    "href": "tf_idf.html#vergleich-mit-termhäufigkeit",
+    "title": "Wörter und Dokument Häufigkeit",
+    "section": "Vergleich mit Termhäufigkeit",
+    "text": "Vergleich mit Termhäufigkeit\nEin Vergleich der idf mit der tf zeigt, das nur weil ein Wort häufig in einem Buch vorkommt, dies nicht automatisch wichtig ist. Im Vergleich sind die Top 10 der häufigsten Wörter gegen die Top 10 der idf dargestellt. Klar zu erkennen ist, das die für die Romane am wichtigsten Wörter (vor allem Romanfiguren) am ehesten mit der idf vorherzusagen sind.",
     "crumbs": [
       "Wörter und Dokument Häufigkeit"
     ]

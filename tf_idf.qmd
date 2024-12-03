@@ -124,3 +124,323 @@ book_words |>
 ```
 
 ## Zipf'sches Gesetz
+
+Die Daten folgen einer Gesetzmäßigkeit, auch *Zipf'sches Gesetz* genannt.
+
+<center>
+Das Zipf'sche Gesetz besagt, dass in einer Sprache die Häufigkeit eines Wortes umgekehrt proportional zu seinem Rang in einer Häufigkeitsliste ist. 
+
+Wenige Wörter kommen sehr oft vor, während die Mehrheit der Wörter selten verwendet wird.
+</center>
+
+Das kann eindrucksvoll am Beispiel der Bücher von Jane Austen gezeigt werden.
+
+```{webr}
+
+freq_by_rank = book_words %>% 
+  group_by(book) %>% 
+  mutate(rank = row_number(),
+         `term frequency` = n/total)
+
+freq_by_rank %>% 
+  ggplot(
+    aes(
+      rank, 
+      `term frequency`, 
+      color = book)
+    ) + 
+  geom_line(
+    size = 1.1, 
+    alpha = 0.8, 
+    # show.legend = FALSE
+    ) + 
+  scale_x_log10() +
+  scale_y_log10(
+    labels = scales::percent
+  )+
+  scale_color_brewer(
+    palette = "Dark2"
+  )+
+  labs(
+    x = "Rang",
+    y = "Termhäufigkeit",
+    color = ""
+  )+
+  theme_bw(
+    base_size = 15
+  )+
+  theme(
+    legend.position = "bottom"
+  )
+
+```
+
+Die Zipf-Verteilung kann in `R` natürlich auch modelliert werden.
+Als wesentlicher Faktor gilt der Formparameter.
+Der  Einfluss des Formparameters ist in der nachfolgenden Parameterstudie dargestellt.
+
+```{webr}
+N <- 20 # max rank
+
+zipf_sim <- expand_grid(
+  s = c(0.5,1,1.5,2), # scale parameter
+  max_Rank = N
+)
+
+zipf_sim <- zipf_sim |> 
+  mutate(
+    probs = 
+      # list(
+      map2(
+        .x = s, 
+        .y = max_Rank,
+        \(x,y) {
+        zipf_probs = (1 / (1:y)^x) / sum(1 / (1:y)^x) 
+        out <- data.frame(Rank = 1:y, Probability = zipf_probs)
+        }
+        )
+      # )
+  ) |> 
+  unnest(
+    cols = "probs"
+  )
+
+
+zipf_sim |> 
+  ggplot(
+    aes(
+      x = Rank,
+      y = Probability,
+      color = as.factor(s)
+    )
+  )+
+  geom_point()+
+  geom_line(
+    size = 1
+  )+
+  labs(
+    title = "",
+    x = "Rang",
+    y = "Wahrscheinlichkeit",
+    color = "Formparameter"
+  ) +
+  scale_x_continuous(
+    breaks = seq(1,N)
+  )+
+  scale_y_continuous(
+    breaks = seq(0,1,0.1),
+    labels = scales::percent
+  )+
+  scale_color_brewer(
+    palette = "Dark2"
+  )+
+  theme_minimal(
+    base_size = 15
+  )+
+  theme(
+    panel.grid.minor.y = element_blank(),
+    panel.grid.minor.x = element_blank(),
+    legend.position = "bottom"
+  )
+```
+
+# Wichtigkeit von Wörtern
+
+Die *inverse Dokumentenhäufigkeit* (*idf*) wird auch gerne mit der Wichtigeit von Wörtern verglichen.
+Aufgeschlüsselt auf Buch sind die Top 10 der wichtigen Bücher unten im plot aufgeführt.
+Vor allem werden die Hauptfiguren angezeigt, was absolut Sinn ergibt.
+
+```{webr}
+book_words %>%
+  arrange(
+    desc(tf_idf)
+    ) %>%
+  mutate(
+    word = 
+      factor(
+        word, 
+        levels = 
+          rev(
+            unique(
+              word
+              )
+            )
+        )
+    ) %>% 
+  group_by(
+    book
+    ) %>% 
+  top_n(10) %>% 
+  ungroup() %>%
+  ggplot(
+    aes(
+      y = word, 
+      x = tf_idf, 
+      fill = book
+      )
+    ) +
+  geom_col(
+    show.legend = FALSE
+    ) +
+  labs(
+    x = NULL, 
+    y = NULL,
+    title = "Wichtigkeit"
+    ) +
+  facet_wrap(~book, ncol = 3, scales = "free_y")+ 
+  scale_fill_brewer(
+    palette = "Dark2"
+  )+
+  scale_x_continuous(
+    expand = c(0,0,0.05,0),
+    labels = scales::percent
+  )+
+  theme_bw(12)
+```
+
+## Vergleich mit Termhäufigkeit
+
+Ein Vergleich der *idf* mit der *tf* zeigt, das nur weil ein Wort häufig in einem Buch vorkommt, dies nicht automatisch wichtig ist.
+Im Vergleich sind die Top 10 der häufigsten Wörter gegen die Top 10 der *idf* dargestellt.
+Klar zu erkennen ist, das die für die Romane am wichtigsten Wörter (vor allem Roman*figuren*) am ehesten mit der *idf* vorherzusagen sind.
+
+```{r}
+#| include: false
+#| fig-width: 10
+
+
+library(dplyr)
+library(janeaustenr)
+library(tidytext)
+library(tidyverse)
+library(here)
+library(patchwork)
+
+book_words = austen_books() %>% 
+  unnest_tokens(word, text) %>% 
+  count(book, word, sort = TRUE)
+
+total_words = book_words %>% 
+  group_by(book) %>% 
+  summarize(total = sum(n))
+#join both
+book_words = left_join(book_words, total_words)
+
+book_words <- book_words %>%
+  bind_tf_idf(word, book, n)
+
+plt_important <- book_words %>%
+  arrange(
+    desc(tf_idf)
+    ) %>%
+  mutate(
+    word = 
+      factor(
+        word, 
+        levels = 
+          rev(
+            unique(
+              word
+              )
+            )
+        )
+    ) %>% 
+  group_by(
+    book
+    ) %>% 
+  top_n(10) %>% 
+  ungroup() %>%
+  ggplot(
+    aes(
+      y = word, 
+      x = tf_idf, 
+      fill = book
+      )
+    ) +
+  geom_col(
+    show.legend = FALSE
+    ) +
+  labs(
+    x = NULL, 
+    y = NULL,
+    title = "Wichtigkeit"
+    ) +
+  facet_wrap(~book, ncol = 3, scales = "free_y")+ 
+  scale_fill_brewer(
+    palette = "Dark2"
+  )+
+  scale_x_continuous(
+    expand = c(0,0,0.05,0),
+    labels = scales::percent
+  )+
+  theme_bw(12)
+
+
+
+
+original_books <- austen_books() %>%
+  group_by(book) |> 
+  mutate(linenumber = row_number(),
+         chapter = cumsum(str_detect(text, regex("^chapter [\\divxlc]",
+                                                 ignore_case = TRUE)))) %>%
+  ungroup()
+
+
+
+tidy_books <- original_books %>%
+  unnest_tokens(word, text)
+
+data(stop_words)
+
+tidy_books <- tidy_books %>%
+  anti_join(stop_words)
+
+by_book <- tidy_books |> 
+  group_by(book,word) |> 
+  summarise(
+    n_words = n()
+  ) |> 
+  top_n(10)
+
+plt_most10 <- by_book |> 
+  ggplot(
+    aes(
+      x = n_words,
+      y = reorder_within(word,n_words,book),
+      fill = book
+    )
+  )+
+  geom_col(
+    show.legend = FALSE
+  )+
+  facet_wrap(
+    ~book,
+    ncol = 3,
+    scales = "free_y"
+  )+
+  scale_y_reordered()+
+  scale_x_continuous(
+    expand = c(0,0,0.05,0)
+  )+
+  scale_fill_brewer(
+    palette = "Dark2"
+  )+
+  labs(
+    title = "häufigste Wörter",
+    x ="",
+    y = "",
+    fill = ""
+  )+
+  theme_bw(12)+
+  theme(
+    legend.position = "bottom"
+  )
+
+plt_cmp <- plt_most10+plt_important
+
+plt_cmp
+
+
+```
+
+
