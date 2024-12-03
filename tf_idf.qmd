@@ -307,12 +307,13 @@ book_words %>%
 ## Vergleich mit Termhäufigkeit
 
 Ein Vergleich der *idf* mit der *tf* zeigt, das nur weil ein Wort häufig in einem Buch vorkommt, dies nicht automatisch wichtig ist.
-Im Vergleich sind die Top 10 der häufigsten Wörter gegen die Top 10 der *idf* dargestellt.
+Im Vergleich sind die Top 10 der häufigsten Wörter gegen die Top 10 der *idf* dargestellt im Roman "Stolz und Vorurteil" ("Pride & Prejudice").
 Klar zu erkennen ist, das die für die Romane am wichtigsten Wörter (vor allem Roman*figuren*) am ehesten mit der *idf* vorherzusagen sind.
 
 ```{r}
 #| echo: false
 #| message: false
+#| warning: false
 #| fig-width: 10
 
 
@@ -337,6 +338,7 @@ book_words <- book_words %>%
   bind_tf_idf(word, book, n)
 
 plt_important <- book_words %>%
+  filter(book == "Pride & Prejudice") |> 
   arrange(
     desc(tf_idf)
     ) %>%
@@ -410,6 +412,7 @@ by_book <- tidy_books |>
   top_n(10)
 
 plt_most10 <- by_book |> 
+  filter(book == "Pride & Prejudice") |> 
   ggplot(
     aes(
       x = n_words,

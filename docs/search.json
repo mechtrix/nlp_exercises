@@ -34,7 +34,7 @@
     "href": "tf_idf.html#vergleich-mit-termhäufigkeit",
     "title": "Wörter und Dokument Häufigkeit",
     "section": "Vergleich mit Termhäufigkeit",
-    "text": "Vergleich mit Termhäufigkeit\nEin Vergleich der idf mit der tf zeigt, das nur weil ein Wort häufig in einem Buch vorkommt, dies nicht automatisch wichtig ist. Im Vergleich sind die Top 10 der häufigsten Wörter gegen die Top 10 der idf dargestellt. Klar zu erkennen ist, das die für die Romane am wichtigsten Wörter (vor allem Romanfiguren) am ehesten mit der idf vorherzusagen sind.\n\n\nWarning: Paket 'janeaustenr' wurde unter R Version 4.4.2 erstellt\n\n\nWarning: Paket 'tidytext' wurde unter R Version 4.4.2 erstellt",
+    "text": "Vergleich mit Termhäufigkeit\nEin Vergleich der idf mit der tf zeigt, das nur weil ein Wort häufig in einem Buch vorkommt, dies nicht automatisch wichtig ist. Im Vergleich sind die Top 10 der häufigsten Wörter gegen die Top 10 der idf dargestellt im Roman “Stolz und Vorurteil” (“Pride & Prejudice”). Klar zu erkennen ist, das die für die Romane am wichtigsten Wörter (vor allem Romanfiguren) am ehesten mit der idf vorherzusagen sind.",
     "crumbs": [
       "Wörter und Dokument Häufigkeit"
     ]
