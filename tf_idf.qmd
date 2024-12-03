@@ -314,7 +314,7 @@ Klar zu erkennen ist, das die für die Romane am wichtigsten Wörter (vor allem 
 #| echo: false
 #| message: false
 #| warning: false
-#| fig-width: 10
+#| fig-width: 8
 
 
 library(dplyr)
