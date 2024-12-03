@@ -13,6 +13,7 @@ webr:
       - DT
       - wordcloud
       - tidyr
+      - purrr
 editor_options: 
   chunk_output_type: console
 ---
