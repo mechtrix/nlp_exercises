@@ -12,6 +12,7 @@ webr:
       - tidytext
       - DT
       - wordcloud
+      - tidyr
 editor_options: 
   chunk_output_type: console
 ---
@@ -251,6 +252,11 @@ Aufgeschlüsselt auf Buch sind die Top 10 der wichtigen Bücher unten im plot au
 Vor allem werden die Hauptfiguren angezeigt, was absolut Sinn ergibt.
 
 ```{webr}
+
+book_words <- book_words %>%
+  bind_tf_idf(word, book, n)
+
+
 book_words %>%
   arrange(
     desc(tf_idf)
@@ -305,7 +311,7 @@ Im Vergleich sind die Top 10 der häufigsten Wörter gegen die Top 10 der *idf* 
 Klar zu erkennen ist, das die für die Romane am wichtigsten Wörter (vor allem Roman*figuren*) am ehesten mit der *idf* vorherzusagen sind.
 
 ```{r}
-#| include: false
+#| echo: false
 #| fig-width: 10
 
 
